@@ -1,0 +1,25 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+django = "*"
+"psycopg2" = "*"
+dj-database-url = "*"
+celery = "*"
+praw = "*"
+
+
+[dev-packages]
+
+pytest = "*"
+pytest-django = "*"
+pytest-sugar = "*"
+"autopep8" = "*"
+isort = "*"
+django-extensions = "*"
+django-dotenv = "*"
