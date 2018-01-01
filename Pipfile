@@ -12,6 +12,7 @@ django = "*"
 dj-database-url = "*"
 celery = "*"
 praw = "*"
+python-dotenv = "*"
 
 
 [dev-packages]
@@ -22,6 +23,7 @@ pytest-sugar = "*"
 "autopep8" = "*"
 isort = "*"
 django-extensions = "*"
-django-dotenv = "*"
 pytest-mock = "*"
 pytest-dotenv = "*"
+pytest-faker = "*"
+ipython = "*"

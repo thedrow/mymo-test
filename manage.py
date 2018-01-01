@@ -2,10 +2,10 @@
 import os
 import sys
 
-import dotenv
+from dotenv import find_dotenv, load_dotenv
 
 if __name__ == "__main__":
-    dotenv.read_dotenv()
+    load_dotenv(find_dotenv())
 
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "reddit_scrapper.settings")
     try:
