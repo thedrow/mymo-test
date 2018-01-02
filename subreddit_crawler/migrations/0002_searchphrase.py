@@ -14,9 +14,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='SearchPhrase',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('phrase', models.CharField(max_length=256)),
-                ('subreddits', django.contrib.postgres.fields.ArrayField(base_field=models.CharField(max_length=256), size=None)),
+                ('subreddits', django.contrib.postgres.fields.ArrayField(
+                    base_field=models.CharField(max_length=256), size=None)),
             ],
         ),
     ]
