@@ -7,6 +7,11 @@ def migrate(ctx):
 
 
 @task
+def createsuperuser(ctx):
+    ctx.run("docker-compose exec web ./manage.py createsuperuser")
+
+
+@task
 def up(ctx):
     ctx.run("docker-compose up --build -d")
 

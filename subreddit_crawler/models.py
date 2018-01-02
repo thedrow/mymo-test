@@ -8,7 +8,7 @@ from subreddit_crawler.managers import SubredditSubmissionsManager
 
 class Subreddit(models.Model):
     name = models.CharField(max_length=256)
-    last_crawled = models.DateTimeField(null=True)
+    last_crawled = models.DateTimeField(null=True, blank=True)
 
 
 class SubredditSubmission(models.Model):
@@ -21,4 +21,4 @@ class SubredditSubmission(models.Model):
 
 class SearchPhrase(models.Model):
     phrase = models.CharField(max_length=256)
-    subreddits = ArrayField(models.CharField(max_length=256))
+    subreddits = ArrayField(models.CharField(max_length=256), blank=True)

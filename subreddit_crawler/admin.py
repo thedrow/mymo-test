@@ -5,7 +5,10 @@ from subreddit_crawler.models import (SearchPhrase, Subreddit,
 
 
 class SearchPhraseAdmin(admin.ModelAdmin):
-    fields = ('phrase', 'subreddits', 'phrase_count')
+    fields = ('phrase', 'subreddits')
+    readonly_fields = ('phrase_count',)
+
+    list_display = ('phrase', 'subreddits', 'phrase_count')
 
     def phrase_count(self, obj):
         return SubredditSubmission.objects.phrase_count(obj.phrase,
