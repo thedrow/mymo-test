@@ -125,3 +125,9 @@ def test_crawl_subreddits(mocked_subreddit,
             mock.call(subreddit2, start_date=start_date2)
         ]
     )
+
+    assert mocked_subreddit1.last_crawled == datetime.now()
+    mocked_subreddit1.save.assert_called_once_with(update_fields=['last_crawled'])
+
+    assert mocked_subreddit2.last_crawled == datetime.now()
+    mocked_subreddit2.save.assert_called_once_with(update_fields=['last_crawled'])
