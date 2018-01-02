@@ -42,10 +42,9 @@ def test_scrape_subreddit_no_new_submissions(mocked_reddit_client,
                                              start_date):
     scrape_subreddit(subreddit, start_date=start_date)
 
-    mocked_reddit_client().subreddit.assert_called_once_with(subreddit,
-                                                             start=start_date,
-                                                             end=None)
-    mocked_reddit_client().subreddit().submissions.assert_called_once_with()
+    mocked_reddit_client().subreddit.assert_called_once_with(subreddit)
+    mocked_reddit_client().subreddit().submissions.assert_called_once_with(start=start_date,
+                                                                           end=None)
     assert not mocked_subreddit_submission.objects.bulk_create.called
 
 
@@ -61,10 +60,9 @@ def test_scrape_subreddit_insert_new_submissions(mocked_reddit_client,
 
     scrape_subreddit(subreddit, start_date=start_date)
 
-    mocked_reddit_client().subreddit.assert_called_once_with(subreddit,
-                                                             start=start_date,
-                                                             end=None)
-    mocked_reddit_client().subreddit().submissions.assert_called_once_with()
+    mocked_reddit_client().subreddit.assert_called_once_with(subreddit)
+    mocked_reddit_client().subreddit().submissions.assert_called_once_with(start=start_date,
+                                                                           end=None)
     mocked_subreddit_submission.objects.bulk_create.assert_called_once_with([
         mocked_subreddit_submission(
             id=submission1.id, text=submission1.selftext),
