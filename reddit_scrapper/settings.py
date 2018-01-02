@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'r+fde74pryz03u=tl)v)4m_m!007e3%ocp%!t4=$oby9k#j@n6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = []
 
@@ -131,4 +131,10 @@ REDDIT_CLIENT_SECRET = os.environ['REDDIT_CLIENT_SECRET']
 REDDIT_USERNAME = os.environ['REDDIT_USERNAME']
 REDDIT_PASSWORD = os.environ['REDDIT_PASSWORD']
 
-CELERY_BROKER_URL = os.environ.get('BROKER_URL', 'pyamqp://guest@localhost//')
+CELERY_BROKER = os.environ.get('BROKER_URL', 'pyamqp://guest@localhost//')
+CELERY_BEAT_SCHEDULE = {
+    'crawl-reddit': {
+        'task': 'subreddit_crawler.tasks.crawl_subreddits',
+        'schedule': 600
+    }
+}

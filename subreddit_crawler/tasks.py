@@ -4,7 +4,7 @@ from datetime import date, datetime
 import praw
 from django.conf import settings
 
-from subreddit_crawler.celery import app
+from reddit_scrapper.celery import app
 from subreddit_crawler.models import Subreddit, SubredditSubmission
 
 

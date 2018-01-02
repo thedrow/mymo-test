@@ -10,6 +10,14 @@ services:
       - postgres
       - rabbitmq
     env_file: .env
+  celery:
+    build: .
+    entrypoint: celery
+    command: ["-A", "reddit_scrapper", "worker", "-B", "-c", "4"]
+    links:
+      - postgres
+      - rabbitmq
+    env_file: .env
   postgres:
     image: postgres:10-alpine
     ports:

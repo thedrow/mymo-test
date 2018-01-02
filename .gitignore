@@ -68,3 +68,6 @@ distribution/dependencies/cache
 .images
 
 .env
+
+# Celery
+celerybeat*
