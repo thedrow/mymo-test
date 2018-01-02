@@ -63,20 +63,24 @@ def test_create_reddit_client(mocked_reddit_client):
 
 def test_scrape_subreddit_no_new_submissions(mocked_reddit_client,
                                              mocked_subreddit_submission,
+                                             mocked_subreddit,
                                              subreddit,
                                              start_date):
+    mocked_subreddit.objects.values_list().get.return_value = 1
     scrape_subreddit(subreddit, start_date=start_date)
 
     mocked_reddit_client().subreddit.assert_called_once_with(subreddit)
     mocked_reddit_client().subreddit().submissions.assert_called_once_with(start=start_date,
                                                                            end=None)
-    assert not mocked_subreddit_submission.objects.bulk_create.called
+    mocked_subreddit_submission.objects.bulk_create.assert_not_called()
 
 
 def test_scrape_subreddit_insert_new_submissions(mocked_reddit_client,
                                                  mocked_subreddit_submission,
+                                                 mocked_subreddit,
                                                  subreddit,
                                                  start_date):
+    mocked_subreddit.objects.values_list().get.return_value = 1
     submission1 = mock.Mock()
     submission2 = mock.Mock()
     mocked_reddit_client().subreddit().submissions.return_value = [submission1,

@@ -18,11 +18,14 @@ def create_reddit_client():
 
 @app.task
 def scrape_subreddit(subreddit_name, start_date, end_date=None):
+    subreddit_id = Subreddit.objects.values_list('id', flat=True).get(name=subreddit_name)
+
     reddit_client = create_reddit_client()
 
     submissions = [
         SubredditSubmission(id=submission.id,
-                            text=submission.selftext)
+                            text=submission.selftext,
+                            subreddit_id=subreddit_id)
         for submission in reddit_client.subreddit(subreddit_name).submissions(start=start_date,
                                                                               end=end_date)
     ]
