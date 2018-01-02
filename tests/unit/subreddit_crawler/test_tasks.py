@@ -1,5 +1,5 @@
-from datetime import datetime
 import time
+from datetime import datetime
 from unittest import mock
 
 import pytest
@@ -121,13 +121,15 @@ def test_crawl_subreddits(mocked_subreddit,
     start_date2 = time.mktime(datetime.now().timetuple())
 
     mocked_scrape_subreddit.delay.assert_has_calls([
-            mock.call(subreddit, start_date=start_date1),
-            mock.call(subreddit2, start_date=start_date2)
-        ]
+        mock.call(subreddit, start_date=start_date1),
+        mock.call(subreddit2, start_date=start_date2)
+    ]
     )
 
     assert mocked_subreddit1.last_crawled == datetime.now()
-    mocked_subreddit1.save.assert_called_once_with(update_fields=['last_crawled'])
+    mocked_subreddit1.save.assert_called_once_with(
+        update_fields=['last_crawled'])
 
     assert mocked_subreddit2.last_crawled == datetime.now()
-    mocked_subreddit2.save.assert_called_once_with(update_fields=['last_crawled'])
+    mocked_subreddit2.save.assert_called_once_with(
+        update_fields=['last_crawled'])

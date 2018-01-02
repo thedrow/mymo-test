@@ -1,5 +1,5 @@
-from datetime import date, datetime
 import time
+from datetime import date, datetime
 
 import praw
 from django.conf import settings
@@ -38,7 +38,7 @@ def crawl_subreddits():
         if subreddit.last_crawled is None:
             # Start crawling from today
             timestamp = time.mktime(datetime.combine(date.today(),
-                                    datetime.min.time()).timetuple())
+                                                     datetime.min.time()).timetuple())
         else:
             timestamp = time.mktime(subreddit.last_crawled.timetuple())
 

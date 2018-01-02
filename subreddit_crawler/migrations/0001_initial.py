@@ -14,7 +14,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='SubredditSubmission',
             fields=[
-                ('id', models.CharField(max_length=128, primary_key=True, serialize=False)),
+                ('id', models.CharField(max_length=128,
+                                        primary_key=True, serialize=False)),
                 ('text', models.TextField()),
             ],
         ),
