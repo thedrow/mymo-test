@@ -43,6 +43,18 @@ To view the list of tasks type:
 
   $ inv --list
 
+-----------------
+Running the tests
+-----------------
+
+To run the tests you need to run postgresql first somehow and set the URI in the .env file.
+
+Then you can run the tests by typing:
+
+.. code:: bash
+
+  $ inv test
+
 
 .. _pipenv: https://github.com/pypa/pipenv
 .. _documentation: https://docs.pipenv.org/
