@@ -14,7 +14,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='searchphrase',
             name='subreddits',
-            field=django.contrib.postgres.fields.ArrayField(base_field=models.CharField(max_length=256), blank=True, size=None),
+            field=django.contrib.postgres.fields.ArrayField(
+                base_field=models.CharField(max_length=256), blank=True, size=None),
         ),
         migrations.AlterField(
             model_name='subreddit',
