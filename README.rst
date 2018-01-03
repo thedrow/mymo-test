@@ -46,6 +46,7 @@ To view the list of tasks type:
 -------------
 Configuration
 -------------
+
 According to 12factor_ `configuration should be stored in environment variables <https://12factor.net/config>`_.
 The configuration is stored in .env files which have the following format:
 
