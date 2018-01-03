@@ -51,6 +51,7 @@ According to 12factor_ `configuration should be stored in environment variables 
 The configuration is stored in .env files which have the following format:
 
 ENV_VAR=VALUE
+
 ENV_VAR2=ANOTHER_VALUE
 
 There are two different .env files. One for development called .env and another one for production called .env.prod.
