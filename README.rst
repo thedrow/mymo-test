@@ -52,7 +52,9 @@ The configuration is stored in .env files which have the following format:
 ENV_VAR=VALUE
 ENV_VAR2=ANOTHER_VALUE
 
-There are two different .env files. One for development called .env and one for production called .env.prod
+There are two different .env files. One for development called .env and another one for production called .env.prod.
+
+This repository contains an example of such .env file called .env.example with the relevant database & message broker URIs set already for production.
 
 -----------------
 Running the tests
