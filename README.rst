@@ -70,6 +70,31 @@ Then you can run the tests by typing:
 
   $ inv test
 
+---------------------
+Running in Production
+---------------------
+
+To crawl reddit we need to register a `reddit application <https://www.reddit.com/prefs/apps/>`_.
+
+The application we need is a script application.
+
+Even though a script application doesn't require a redirect uri, reddit's UI still requires it. Please set it to http://localhost:8080.
+
+After the application is set, change the appropriate values in your .env file.
+
+To run the project you'll need docker and docker-compose.
+
+After both are installed, to run the project type:
+
+.. code:: bash
+
+  $ inv up
+
+To terminate the project type:
+
+.. code:: bash
+
+  $ inv down
 
 .. _pipenv: https://github.com/pypa/pipenv
 .. _documentation: https://docs.pipenv.org/
