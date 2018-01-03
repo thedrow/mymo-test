@@ -43,6 +43,17 @@ To view the list of tasks type:
 
   $ inv --list
 
+-------------
+Configuration
+-------------
+According to 12factor_ `configuration should be stored in environment variables <https://12factor.net/config>`_.
+The configuration is stored in .env files which have the following format:
+
+ENV_VAR=VALUE
+ENV_VAR2=ANOTHER_VALUE
+
+There are two different .env files. One for development called .env and one for production called .env.prod
+
 -----------------
 Running the tests
 -----------------
@@ -59,3 +70,4 @@ Then you can run the tests by typing:
 .. _pipenv: https://github.com/pypa/pipenv
 .. _documentation: https://docs.pipenv.org/
 .. _invoke: http://www.pyinvoke.org/
+.. _12factor: https://12factor.net/
