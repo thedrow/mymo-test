@@ -19,3 +19,8 @@ def up(ctx):
 @task
 def down(ctx):
     ctx.run("docker-compose down")
+
+
+@task
+def test(ctx):
+    ctx.run("pipenv run pytest")
